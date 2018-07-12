@@ -26,7 +26,7 @@ class MyGrid(grd.Grid):#############Grid Class for the right side of the screen
         attr.SetEditor(grd.GridCellBoolEditor())
         attr.SetRenderer(grd.GridCellBoolRenderer())
 
-        # digita
+        # digital
 
         for i in range(0, (len(colLabels))):  ###uses the number of grids depending on amount of items in colLabels
             self.SetColAttr(i, attr)
@@ -77,8 +77,7 @@ class GUI(wx.Frame):
         panel4 = wx.Panel(self, -1, size=(250, 460), pos=(840, 140), style=wx.SIMPLE_BORDER)
         grid = MyGrid(panel4)
         grid.SetFocus()
-        self.CentreOnScreen()
-
+        # self.CentreOnScreen()
 ############################################# Main Panel that has buttons and drop downs
         panel2 = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(800, 400), pos=(20, 200),
                                                     style=wx.SIMPLE_BORDER)
@@ -104,6 +103,7 @@ class GUI(wx.Frame):
 
         done_button = wx.Button(panel1, label="Done", pos=(400, 30), size=(150, 40))
         self.Bind(wx.EVT_BUTTON, self.done_button, done_button)
+
         text_process = wx.StaticText(panel1, -1, "Process", pos=(50, 100), size=(260, -1))
         font = wx.Font(18, wx.DECORATIVE, wx.ITALIC, wx.NORMAL)
         text_process.SetFont(font)

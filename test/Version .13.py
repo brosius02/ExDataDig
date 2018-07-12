@@ -1,47 +1,35 @@
 import wx
 import wx.lib.scrolledpanel
-import wx.grid as grd
-
-
-output_list = ["", "", "", "", "", "", "", "", "", "", "", "", "", ""]
-colLabels = {"machine 1", "machine 2", "machine 3", "machine 4", "machine 5", "machine 6", "machine 7",
-             "machine 8", "machine 9", "machine 10", "machine 11", "machine 12", "machine 13", "machine 14"}
 
 
 class GUI(wx.Frame):
 
     def __init__(self, parent, id, title):
         # Create a frame
-        self.main_panel = wx.Frame.__init__(self, parent, id, size=(1200, 650))
-        self.the_panel = wx.lib.scrolledpanel.ScrolledPanel(self.main_panel, -1)
-        the_box = wx.BoxSizer(wx.VERTICAL)
-        self.main_panel.SetSizer(the_box)
-        self.main_panel.SetupScrolling()
-
-        panel4 = wx.Panel(self, -1, size=(250, 460), pos=(840, 140), style=wx.SIMPLE_BORDER)
-
+        wx.Frame.__init__(self, parent, id, title, size=(1200, 600))
+        output_list = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 ############################################
-        # checkboxpanel = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(250, 400), pos=(840, 200),
-        #                                                    style=wx.SIMPLE_BORDER)
-        # bSizer3 = wx.BoxSizer(wx.VERTICAL)
-        # bSizer4 = wx.BoxSizer(wx.HORIZONTAL)
-        # panel4.SetBackgroundColour('#FFFFFF')
-        # panel4.SetSizer(bSizer3)
-        # panel4.SetupScrolling()
-        # y = 0
-        # y1 = 0
-        # for i in range(0, (len(output_list))):
-        #     self.checkbox_1 = wx.CheckBox(panel4, label='', pos=(23 + y, 10))
-        #
-        #     # bSizer3.Add(checkbox_1, 0, wx.ALL, 25)
-        #     y = y + 50
-        #
-        # for i in range(0, (len(output_list))):
-        #     self.checkbox_2 = wx.CheckBox(panel4, label='', pos=(23, 40 + y1))
-        #     # bSizer4.Add(checkbox_2, 0, wx.ALL, 25)
-        #     y1 = y1 + 30
+        checkboxpanel = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(250, 350), pos=(840, 200),
+                                                           style=wx.SIMPLE_BORDER)
+        checkboxpanel.SetupScrolling(scroll_x=True, scroll_y=True)
+        checkboxpanel.SetBackgroundColour('#FFFFFF')
+        bSizer3 = wx.BoxSizer(wx.VERTICAL)
+        checkboxpanel.SetSizer(bSizer3)
+
+        RowSize = 0
+        columnWidth = 0
+        for i in range(0, (len(output_list))):
+            cb1 = wx.CheckBox(checkboxpanel, pos=(0 + columnWidth, 0 + RowSize), size=(15, 30), style=0)
+            cb2 = wx.CheckBox(checkboxpanel, pos=(40 + columnWidth, 0 + RowSize), size=(15, 30), style=0)
+            cb3 = wx.CheckBox(checkboxpanel, pos=(80 + columnWidth, 0 + RowSize), size=(15, 30), style=0)
+            cb4 = wx.CheckBox(checkboxpanel, pos=(120 + columnWidth, 0 + RowSize), size=(15, 30), style=0)
+            cb5 = wx.CheckBox(checkboxpanel, pos=(160 + columnWidth, 0 + RowSize), size=(15, 30), style=0)
+            bSizer3.Add(0, 10, wx.ALL, 0)
+            RowSize = RowSize + 40
+
+
 #############################################
-        panel2 = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(800, 400), pos=(20, 200),
+        panel2 = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(800, 350), pos=(20, 200),
                                                     style=wx.SIMPLE_BORDER)
         bSizer = wx.BoxSizer(wx.VERTICAL)
         panel2.SetupScrolling()
@@ -56,6 +44,11 @@ class GUI(wx.Frame):
             x = x + 40
             bSizer.Add(remove_btn1, 0, wx.ALL, 5)
         official_list1
+
+        self.buttons = []
+        for i in range(0, 3):  ###number of buttons
+            self.buttons.append(wx.Button(self, -1, "Button &" + str(i)))
+            self.bSizer.Add(self.buttons[i], 1, wx.EXPAND)
 #############################################
         panel1 = wx.lib.scrolledpanel.ScrolledPanel(self, size=(800, 150), pos=(20, 50),
                                                     style=wx.SIMPLE_BORDER)

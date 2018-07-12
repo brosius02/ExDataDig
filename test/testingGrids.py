@@ -1,16 +1,32 @@
-from tkinter import *
+import wx
+import wx.grid as gridlib
 
-class Applicatoin(Frame):
-    def _inti_(self, master):
-        super(Application, self).__init__(master)
-        self.grid()
-        self.create_widgets()
+########################################################################
+class MyForm(wx.Frame):
+    """"""
 
-    def create_widgets(self):
-        self.inst_lbl = Label(self, text="Enter password for the secrete of learning to use Python")
-        self.inst_lbl.grid(row=0, column=0, columnspan=2, sticky=W)
+    # ----------------------------------------------------------------------
+    def __init__(self):
+        """Constructor"""
+        wx.Frame.__init__(self, None, -1, 'Processing Layout Version .1', size=(800, 800))
+        panel = wx.Panel(self)
 
-        self.pw_lbl = Label(self, text = "Password: ")
-        self.pw_lbl.grid(row=1, column=0, sticky=W)
+        myGrid = gridlib.Grid(panel)
+        myGrid.CreateGrid(12, 8)
 
-        self.pw_ent = Entry(self)
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        sizer.Add(myGrid, 1, wx.EXPAND)
+        panel.SetSizer(sizer)
+
+        languages = ['C', 'C++', 'Python', 'Java', 'Perl']
+        # self.combo = wx.ComboBox(panel, choices=languages)
+        # sizer.Add(self.combo, 1, wx.EXPAND | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 5)
+
+        choice_editor = wx.grid.GridCellChoiceEditor(languages, True)
+        myGrid.SetCellEditor(5, 3, choice_editor)
+
+
+if __name__ == "__main__":
+    app = wx.PySimpleApp()
+    frame = MyForm().Show()
+    app.MainLoop()

@@ -1,10 +1,14 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="PyArgumentListInspection" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <option name="ignoredErrors">
         <list>
           <option value="E265" />
+          <option value="E261" />
+          <option value="E262" />
+          <option value="E501" />
         </list>
       </option>
     </inspection_tool>
@@ -14,14 +18,28 @@
           <option value="N806" />
           <option value="N802" />
           <option value="N801" />
+          <option value="N803" />
         </list>
       </option>
     </inspection_tool>
-    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="id" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="ignoredIdentifiers">
         <list>
           <option value="creatingWXgui.MainWindow.OnOpen" />
           <option value="testingButtons.event" />
+          <option value="wx.grid.Grid.setRowLabelValue" />
+          <option value="wx.grid.Grid.setColLabelValu" />
+          <option value="wx.grid.Grid.setColLabelValue" />
+          <option value="wx.grid.SetColLabelValue" />
+          <option value="playingWithGrids2.MyForm.*" />
+          <option value="wx.grid.SetColLabelValue.GetColLabelTextOrientation" />
         </list>
       </option>
     </inspection_tool>

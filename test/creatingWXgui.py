@@ -1,37 +1,33 @@
 import os
 import wx
+import wx.lib.scrolledpanel
+
+output_list = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 
 
 class MainWindow(wx.Frame):
-    def __init__(self, parent, title, menu_about=None, menu_exit=None):
+    def __init__(self, parent, title):
         self.dirname = ''
 
-        wx.Frame.__init__(self, parent, title=title, size=(1000, 600))
-        self.control = wx.TextCtrl(self, style=wx.TE_MULTILINE)
-        self.CreateStatusBar()
+        wx.Frame.__init__(self, parent, title=title, size=(1000, 400))
+        self.sizer2 = wx.BoxSizer(wx.VERTICAL)
+        self.buttons1 = []
+        panel3 = wx.lib.scrolledpanel.ScrolledPanel(self, size=(100, 600), pos=(100, 5), style=wx.SIMPLE_BORDER)
+        panel3.SetBackgroundColour('#FFFFFF')
+        x = 0
+        for i in range(0, len(output_list)):###number of buttons
+            self.buttons1.append(wx.Button(panel3, -1, "Remove Row " + str(i), pos=(20, 50 + x), size=(100, 30)))
+            self.sizer2.Add(self.buttons1[i], 1, wx.ALL)
+            x = x + 30
 
-        fileMenu = wx.Menu()
-        fileMenu.Append(wx.ID_ABOUT, "&About", " Information about this program")
-        fileMenu.Append(wx.ID_EXIT, "E&xit", " Terminate the program")
-
-        # Creating the menu bar.
-        menuBar = wx.MenuBar()
-        menuBar.Append(fileMenu, "&File")  # fileMenu to the menu bar
-        self.SetMenuBar(menuBar)
-
-        self.Bind(wx.EVT_MENU, self.OnAbout, menu_about)
-        self.Bind(wx.EVT_MENU, self.OnExit, menu_exit)
-
-        self.sizer2 = wx.BoxSizer(wx.HORIZONTAL)
-        self.buttons = []
-        for i in range(0, 3):###number of buttons
-            self.buttons.append(wx.Button(self, -1, "Button &" + str(i)))
-            self.sizer2.Add(self.buttons[i], 1, wx.EXPAND)
-
+        # self.button2 = []
+        # x = 0
+        # for i in range(0, len(output_list)):###number of buttons
+        #     self.buttons2.append(wx.Button(self, -1, "Remove Row " + str(i), pos=(20, 100 + x), size=(100, 30)))
+        #     self.sizer2.Add(self.buttons2[i], 1, wx.ALL)
+        #     x = x + 30
         # user some sizers to see layout options
         self.sizer = wx.BoxSizer(wx.VERTICAL)
-        self.sizer.Add(self.sizer2, 0, wx.EXPAND)
-        self.sizer.Add(self.control, 1, wx.EXPAND)
 
         # Layouts
         self.SetSizer(self.sizer)
@@ -39,25 +35,9 @@ class MainWindow(wx.Frame):
         #self.sizer.Fit(self) ###You can user this to auto fit the program
         self.Show()
 
-    def OnAbout(self, e):
-        # Mesage dialoge box with an OK button
-        dlg = wx.MessageBox(self, "A sample editor \nin wxPython", "About sample editor", wx.OK)
-        dlg.ShowModal()
-        dlg.Destroy()
-
-    def OnExit(self, e):
-        self.Close(True)
-
-    def onOpen(self, e):
-        """"Open a file"""
-        dlg = wx.FileDialog(self, "Choose a file", self.dirname, "", "*.*", wx.FD_OPEN)
-        if dlg.ShowModal() == wx.ID_OK:
-            #self.filename = dlg.GetFilename()##doesnt work yet
-            self.dirname = dlg.GetDirectory()
-            f = open(os.path.join(self.dirname.self.filename), 'r')
-            self.control.SetValue(f.read())
-            f.close()
-        dlg.Destroy()
+        text = wx.StaticText(panel3, -1, "Process", pos=(5, 10), size=(10, 10))
+        font = wx.Font(18, wx.DECORATIVE, wx.ITALIC, wx.NORMAL)
+        text.SetFont(font)
 
 
 app = wx.App(False)
