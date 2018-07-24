@@ -1,13 +1,13 @@
 # Post Processing Layout
 <hr>
-# Project Title
-
-One Paragraph of project description goes here
+# Project 
 This project is for a add on to an internal data dig process. Using this will save people time and energy on the information they are trying to understand. This is an internal tool to better internal processes. 
+
 <hr>
 ## Getting Started
 
 The latest version of this project is version .62. .62 Version can create new note pages and you can delete older notepages. 
+
 <hr>
 ### Prerequisites
 
