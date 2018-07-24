@@ -1,6 +1,6 @@
 import wx
 
-output_list = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+output_list = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
                "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 
 
@@ -53,7 +53,7 @@ class MainFrame(wx.Frame):
         space_between_boxes2 = 0
         space_between_boxes3 = 0
         space_between_boxes4 = 0
-        process_hieght_location = 45 ###This controls the height of all of the attributes within the program.
+        process_hieght_location = 65 ###This controls the height of all of the attributes within the program.
 
         first_line = process_hieght_location
         second_line = 25 + process_hieght_location
@@ -110,8 +110,6 @@ class MainFrame(wx.Frame):
         Detailed_Information = wx.ListBox(page, -1, (30, process_hieght_location + 195), (700, 100),
                                           style=wx.TE_MULTILINE | wx.BORDER)
 
-        save_notes_button = wx.Button(page, label="Save Notes", pos=(30, process_hieght_location + 300), size=(75, 30))
-        self.Bind(wx.EVT_BUTTON, self.save_notes_button, save_notes_button)
 
     def onButtonRemove(self, event):
         page_to_delete = self.notebook3.GetSelection()

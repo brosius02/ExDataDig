@@ -1,57 +1,30 @@
 import wx
 
 
-########################################################################
-class MyPanel(wx.Panel):
-    """"""
+class Example(wx.Frame):
 
-    # ----------------------------------------------------------------------
-    def __init__(self, parent):
-        """Constructor"""
-        wx.Panel.__init__(self, parent)
-        self.btns = 1
+    def __init__(self, parent, title):
+        super(Example, self).__init__(parent, title=title, size=(200, 200))
 
-        self.main_sizer = wx.BoxSizer(wx.VERTICAL)
-        self.SetSizer(self.main_sizer)
+        self.InitUI()
 
-        add_btn = wx.Button(self, label="Process", pos=(225, 600), size=(150, 40))
-        add_btn.Bind(wx.EVT_BUTTON, self.add_button)
+    def InitUI(self):
+        pnl = wx.Panel(self)
 
-        done_button = wx.Button(self, label="Done", pos=(400, 600), size=(150, 40))
-        self.Bind(wx.EVT_BUTTON, self.done_button, done_button)
-    # ----------------------------------------------------------------------
+        self.cb1 = wx.CheckBox(pnl, label='Value A', pos=(10, 10))
+        self.cb2 = wx.CheckBox(pnl, label='Value B', pos=(10, 40))
+        self.cb3 = wx.CheckBox(pnl, label='Value C', pos=(10, 70))
 
-    def add_button(self, event):
-        """"""
-        new_btn = wx.Button(self, label="Remove %s" % self.btns, pos=(20, 20), size=(80, 30))
-        new_btn.Bind(wx.EVT_BUTTON, self.remove_button)
-        self.btns += 1
-        self.main_sizer.Add(new_btn, 0, 0, wx.ALL, 5)
-        # new_list_box = wx.ListBox(self, label="")
-        self.main_sizer.Layout()
+        self.Bind(wx.EVT_CHECKBOX, self.onChecked)
+        self.Centre()
+        self.Show(True)
 
-    # ----------------------------------------------------------------------
+    def onChecked(self, e):
+        cb = e.GetEventObject()
+        print
+        cb.GetLabel(), ' is clicked', cb.GetValue()
 
 
-    def process_button(self, event):
-        """#something awesome happens here"""
-
-    def done_button(self, event):
-        """pretty much self evident, what do you think it means?"""
-
-
-########################################################################
-class MyFrame(wx.Frame):
-    """"""
-    # ----------------------------------------------------------------------
-    def __init__(self):
-        """Constructor"""
-        wx.Frame.__init__(self, None, title="Buttons", size=(1200, 700))
-        panel = MyPanel(self)
-        self.Show()
-
-
-if __name__ == '__main__':
-    app = wx.App(False)
-    frame = MyFrame()
-    app.MainLoop()
+ex = wx.App()
+Example(None, 'CheckBox')
+ex.MainLoop()
