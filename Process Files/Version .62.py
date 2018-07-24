@@ -16,7 +16,7 @@ class Page(wx.Panel):
 class MainFrame(wx.Frame):
     def __init__(self):
         #Controls the size of the frame
-        wx.Frame.__init__(self, None, title="Processing Version .6", size=(950, 500))
+        wx.Frame.__init__(self, None, title="Processing Version .62", size=(950, 500))
         self.cb_list = []
         pannel = wx.Panel(self)
         vbox = wx.BoxSizer(wx.VERTICAL)

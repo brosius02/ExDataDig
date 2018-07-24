@@ -9,8 +9,7 @@ import wx.grid as grd
 
 ######################These are place holders for the for loops.
 output_list = ["", "", "", "", "", "", "", "", "", "", "", "", "", ""]
-colLabels = {"machine 1", "machine 2", "machine 3", "machine 4", "machine 5", "machine 6", "machine 7",
-             "machine 8", "machine 9", "machine 10", "machine 11", "machine 12", "machine 13", "machine 14"}
+
 ######################
 
 
@@ -18,7 +17,7 @@ class MyGrid(grd.Grid):#############Grid Class for the right side of the screen
     def __init__(self, Child):
         grd.Grid.__init__(self, Child, -1, size=(250, 460))
         self.EnableGridLines(enable=False)
-        self.CreateGrid(len(output_list), len(colLabels))
+        self.CreateGrid(len(output_list), len(output_list))
         self.RowLabelSize = 0
         self.ColLabelSize = 60
 
@@ -28,11 +27,11 @@ class MyGrid(grd.Grid):#############Grid Class for the right side of the screen
 
         # digital
 
-        for i in range(0, (len(colLabels))):  ###uses the number of grids depending on amount of items in colLabels
+        for i in range(0, (len(output_list))):  ###uses the number of grids depending on amount of items in colLabels
             self.SetColAttr(i, attr)
             self.SetRowSize(i, 40)
             self.SetColSize(i, 80)  ###sets column 0 size
-            self.SetColLabelValue(i, "Machine " + str(i))
+            self.SetColLabelValue(i, "Machine " + str(i + 1))
 
         self.Bind(grd.EVT_GRID_CELL_LEFT_CLICK, self.onMouse)
         self.Bind(grd.EVT_GRID_SELECT_CELL, self.onCellSelected)
@@ -89,6 +88,7 @@ class GUI(wx.Frame):
         x = 0
         for i in range(0, (len(output_list))):
             remove_btn1 = wx.Button(panel2, label="Remove", pos=(20, 20 + x), size=(80, 30))
+            self.Bind(wx.EVT_BUTTON, self.remove_button, remove_btn1)
             official_list1 = wx.ListBox(panel2, -1, (110, 10 + x), (500, 30), output_list, wx.LB_SINGLE)
             wx.Choice(panel2, -1, (650, 10 + x), (90, 40), choices=sampleList)  # pos , then size
             x = x + 40
@@ -122,6 +122,9 @@ class GUI(wx.Frame):
 
     def done_button(self, event: object) -> object:
         """pretty much self evident, what do you think it means?"""
+
+    def remove_button(self, event):
+        """Remove the following information"""
 
 
 if __name__ == '__main__':
