@@ -8,7 +8,7 @@ This project is for a add on to an internal data dig process. Using this will sa
 
 <h3>Getting Started</h3>
 
-The latest version of this project is <a href="https://github.com/brosius02/ExDataDig/blob/master/Process%20Files/Version%20.62.py">version .62.</a>
+The latest version of this project is <a href="https://github.com/brosius02/ExDataDig/blob/master/Process%20Files/Version%20.62.py">version .62.</a><br>
 .62 Version can create new note pages and you can delete older notepages. 
 
 
