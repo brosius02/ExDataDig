@@ -27,11 +27,6 @@ This project is for a add on to an internal data dig process. Using this will sa
 
 <hr>
 
-<h3> Running the tests</h3>
-
-
-
-<hr>
 
 <h3> Built With</h3>
 
