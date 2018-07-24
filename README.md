@@ -24,9 +24,11 @@ This project is for a add on to an internal data dig process. Using this will sa
 <h3> Screenshots</h3>
 <img src="images/version .62.PNG">
 <hr>
-
+<br>
+<br>
 <h3> Installing</h3>
-
+<br>
+<br>
 
 
 <hr>
@@ -37,6 +39,7 @@ This project is for a add on to an internal data dig process. Using this will sa
 
 * The frame work of this was built with <a href="https://www.python.org/downloads/release/python-354/">python version 3.5.4</a>
 <hr>
+
 
 <h3>Contributing</h3>
 
