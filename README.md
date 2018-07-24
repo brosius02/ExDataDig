@@ -29,7 +29,9 @@ This project is for a add on to an internal data dig process. Using this will sa
 <h3> Installing</h3>
 <br>
 * Instructions on how to install or download the program. 
+
 * Click the download zip button and extract the file to a location that you determine. 
+
 * Copy and paste Version 0.62 into the file folder that you are running pychar through.
 
 
