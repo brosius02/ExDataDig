@@ -54,7 +54,7 @@ This project is for a add on to an internal data dig process. Using this will sa
 
 <h3>License</h3>
 
-*This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 <hr>
 
 <h3>Acknowledgments</h3>
