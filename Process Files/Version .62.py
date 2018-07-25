@@ -18,31 +18,31 @@ class MainFrame(wx.Frame):
         #Controls the size of the frame
         wx.Frame.__init__(self, None, title="Processing Version .62", size=(950, 500))
         self.cb_list = []
-        pannel = wx.Panel(self)
+        panel1 = wx.Panel(self)
         vbox = wx.BoxSizer(wx.VERTICAL)
         hbox = wx.BoxSizer(wx.HORIZONTAL)
 
         ico = wx.Icon('john_deere.ico', wx.BITMAP_TYPE_ICO)
         self.SetIcon(ico)
         #The start of the buttons on the main panel
-        self.buttonRemove = wx.Button(pannel, id=-1, label="Delete Process")
+        self.buttonRemove = wx.Button(panel1, id=-1, label="Delete Process")
         self.buttonRemove.Bind(wx.EVT_BUTTON, self.onButtonRemove)
         hbox.Add(self.buttonRemove)
 
-        self.buttonInsert = wx.Button(pannel, id=-1, label="Create Process")
+        self.buttonInsert = wx.Button(panel1, id=-1, label="Create Process")
         self.buttonInsert.Bind(wx.EVT_BUTTON, self.onButtonInsert)
         hbox.Add(self.buttonInsert)
 
-        self.buttonDone = wx.Button(pannel, id=-1, label="Done")
+        self.buttonDone = wx.Button(panel1, id=-1, label="Done")
         self.buttonDone.Bind(wx.EVT_BUTTON, self.onButtonDone)
         hbox.Add(self.buttonDone)
 
         vbox.Add(hbox, 0, wx.ALL, 7)
 
-        self.notebook3 = wx.Notebook(pannel)
-        vbox.Add(self.notebook3, 1, wx.EXPAND | wx.ALL, 7)
+        self.notebook_var = wx.Notebook(panel1)
+        vbox.Add(self.notebook_var, 1, wx.EXPAND | wx.ALL, 7)
 
-        pannel.SetSizer(vbox)
+        panel1.SetSizer(vbox)
 
         self.pageCounter = 0
         self.addPage()
@@ -50,9 +50,9 @@ class MainFrame(wx.Frame):
     def addPage(self):
         #creates the page
         self.pageCounter += 1
-        page = Page(self.notebook3)
+        page = Page(self.notebook_var)
         pageTitle = "Process: {0}".format(str(self.pageCounter))
-        self.notebook3.AddPage(page, pageTitle)
+        self.notebook_var.AddPage(page, pageTitle)
 
         # Control the height of the objects within the GUI
         space_between_boxes1 = 0
@@ -129,8 +129,8 @@ class MainFrame(wx.Frame):
         process_text.SetFont(font_top_text)
 
     def onButtonRemove(self, event):
-        page_to_delete = self.notebook3.GetSelection()
-        self.notebook3.DeletePage(page_to_delete)
+        page_to_delete = self.notebook_var.GetSelection()
+        self.notebook_var.DeletePage(page_to_delete)
 
     def onButtonInsert(self, event):
         self.addPage()
