@@ -1,4 +1,4 @@
-# Post Processing Layout <img src=images/DeereImage.jpg height="150" width="250">
+# Post Processing Layout <img src=images/DeereImage.jpg height="50" width="150">
 <hr>
 <h3>Project </h3>
 This project is for a add on to an internal data dig process. Using this will save people time and energy on the information they are trying to understand. This is an internal tool to better internal processes. 
