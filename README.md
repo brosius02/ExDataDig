@@ -22,7 +22,7 @@ This project is for a add on to an internal data dig process. Using this will sa
 <hr>
 
 <h3> Screenshots</h3>
-<img src="images/version .62.PNG">
+<img src="images/version .62.PNG" height="300" width="400">
 <hr>
 <br>
 <br>
